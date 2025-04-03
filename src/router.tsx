@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -9,18 +9,18 @@ import PostDetails from "./pages/PostDetails";
 // import PostDetails from "./pages/PostDetails";
 // import NotFound from "./pages/NotFound";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      { path: "", Component: Home }, // Default route
-      { path: "profile", Component: Profile },
-      { path: "posts", Component: Posts },
-      { path: "post/:id", Component: PostDetails },
-      { path: "*", Component: NotFound },
-    ],
-  },
-]);
+const router = createHashRouter([
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        { path: "", Component: Home }, // Default route
+        { path: "profile", Component: Profile },
+        { path: "posts", Component: Posts },
+        { path: "post/:id", Component: PostDetails },
+        { path: "*", Component: NotFound },
+      ],
+    },
+  ]);
 
 export default router;
