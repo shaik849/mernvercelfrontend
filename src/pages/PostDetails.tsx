@@ -37,7 +37,7 @@ const PostDetails = () => {
   const handleDelete = () => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-    fetch(`https://pern-backend-blush.vercel.app//api/post/${id}`, {
+    fetch(`https://pern-backend-blush.vercel.app/api/post/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

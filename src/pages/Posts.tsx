@@ -18,13 +18,15 @@ const Posts = () => {
   const [newPost, setNewPost] = useState({ name: "", description: "", content: "" });
   const [formErrors, setFormErrors] = useState({ name: "", description: "", content: "" });
   const [showForm, setShowForm] = useState(false);
-
+  console.log(posts);
+  
   useEffect(() => {
     fetch("https://pern-backend-blush.vercel.app/api/posts")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
         if (data.success) {
+            console.log(data)
           setPosts(data.data);
         } else {
           setError("No posts found");
@@ -49,7 +51,7 @@ const Posts = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch("https://pern-backend-blush.vercel.app/api/posts", {
+      const response = await fetch("https://pern-backend-blush.vercel.app/api/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
