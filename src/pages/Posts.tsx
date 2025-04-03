@@ -20,7 +20,7 @@ const Posts = () => {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    fetch("https://backend-vercel-ti8p.vercel.app/api/posts")
+    fetch("https://pern-backend-blush.vercel.app/api/posts")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
