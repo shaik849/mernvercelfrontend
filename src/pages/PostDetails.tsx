@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 interface Post {
-  _id: string;
+  id: number; // Changed to number
   name: string;
   description: string;
   content: string;
 }
+
 const PostDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -21,8 +22,14 @@ const PostDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setPost(data.data);
-          setEditedPost(data.data); // Store original data
+          const transformedPost: Post = {
+            id: Number(data.data._id), // Convert _id to a number
+            name: data.data.name,
+            description: data.data.description,
+            content: data.data.content,
+          };
+          setPost(transformedPost);
+          setEditedPost(transformedPost); // Store original data
         } else {
           setError("Post not found");
         }

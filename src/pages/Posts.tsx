@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // Define the Post type
 interface Post {
-  _id: string;
+  id: number;
   name: string;
   description: string;
   content: string;
@@ -116,9 +116,9 @@ const Posts = () => {
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {posts.map((post: Post) => (
-          <div key={post._id} className="bg-white shadow-lg rounded-lg p-4 border border-gray-200 hover:shadow-xl">
+          <div key={post.id} className="bg-white shadow-lg rounded-lg p-4 border border-gray-200 hover:shadow-xl">
             <h3 className="text-xl font-semibold mb-2">
-              <Link to={`/post/${post._id}`} className="text-blue-500 hover:underline">
+              <Link to={`/post/${post.id}`} className="text-blue-500 hover:underline">
                 {post.name}
               </Link>
             </h3>
