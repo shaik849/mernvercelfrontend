@@ -49,7 +49,7 @@ const Posts = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch("https://backend-vercel-ti8p.vercel.app/api/post", {
+      const response = await fetch("https://pern-backend-blush.vercel.app/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),

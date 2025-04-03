@@ -8,7 +8,7 @@ import PostDetails from "./pages/PostDetails";
 // import Posts from "./pages/Posts";
 // import PostDetails from "./pages/PostDetails";
 // import NotFound from "./pages/NotFound";
-console.log("hi")
+
 const router = createHashRouter([
     {
       path: "/",

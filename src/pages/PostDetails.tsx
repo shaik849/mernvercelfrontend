@@ -7,7 +7,6 @@ interface Post {
   description: string;
   content: string;
 }
-
 const PostDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const PostDetails = () => {
   const [editedPost, setEditedPost] = useState<Post | null>(null);
 
   useEffect(() => {
-    fetch(`https://backend-vercel-ti8p.vercel.app/api/post/${id}`)
+    fetch(`https://pern-backend-blush.vercel.app/api/post/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -38,7 +37,7 @@ const PostDetails = () => {
   const handleDelete = () => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-    fetch(`https://backend-vercel-ti8p.vercel.app/api/post/${id}`, {
+    fetch(`https://pern-backend-blush.vercel.app//api/post/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -74,7 +73,7 @@ const PostDetails = () => {
       return;
     }
 
-    fetch(`https://backend-vercel-ti8p.vercel.app/api/post/${id}`, {
+    fetch(`https://pern-backend-blush.vercel.app/api/post/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
